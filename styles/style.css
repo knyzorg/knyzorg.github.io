@@ -162,8 +162,7 @@ section {
 a {
     color: #000;
     font-weight: bold;
-    border-bottom: 2px solid #000;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .contact {
@@ -171,6 +170,7 @@ a {
     color: #fff;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -178,6 +178,23 @@ a {
 .contact form {
     width: 100%;
     max-width: 600px;
+    max-height: 1000vh;
+    transition: all .5s ease;
+}
+
+.contact.submitted form {
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.contact .sentInfo {
+    max-height: 0;
+    transition: all 2s ease;
+    overflow: hidden;
+}
+
+.contact.submitted .sentInfo {
+    max-height: 900vh;
 }
 
 .field {

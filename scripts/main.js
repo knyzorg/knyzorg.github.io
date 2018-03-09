@@ -229,3 +229,37 @@ setInterval(generateIdea, 5000)
 elIdea.addEventListener("click", generateIdea)
 
 generateIdea()
+
+// Email Form
+
+let elForm = document.querySelector("form")
+elForm.addEventListener("submit", function (e) {
+    let elements = this.querySelectorAll("input, textarea");
+    let dataPairs = [...elements]
+        .filter(c => c.name)
+        .filter(c => !((c.type == "checkbox" || c.type == "radio") && !c.checked))
+        .map(c => {
+            let pair = {};
+            pair[c.name] = c.value;
+            return pair;
+        })
+    let postData = dataPairs.reduce((a, b) => {
+        return Object.assign(a, b);
+    })
+
+    var form_data = new FormData();
+
+    for (let key in postData) {
+        form_data.append(key, postData[key]);
+    }
+
+    fetch(this.action, {
+        method: "POST",
+        mode: 'no-cors',
+        body: form_data
+    }).then(() => {
+        this.parentElement.classList.add("submitted")
+    })
+
+    e.preventDefault();
+})
