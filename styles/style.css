@@ -2,6 +2,27 @@
     box-sizing: border-box;
 }
 
+.banner, section, .contact {
+    animation: fadeIn .5s;
+}
+
+h1, h2, h3, h4, h5, h6, h7, p, span, svg {
+    animation: fadeIn 1.5s;
+}
+
+video {
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 body {
     font-family: 'Work Sans', sans-serif;
 }
@@ -214,7 +235,8 @@ a {
     text-align: left;
 }
 
-.field textarea, .field input {
+.field textarea,
+.field input {
     background-color: transparent;
     z-index: 99;
     color: rgba(255, 255, 255, 0.7);
@@ -225,10 +247,11 @@ a {
     padding: 10px;
     margin-bottom: 20px;
     box-shadow: none;
-    transition: all 0.5s ease;
+    transition: color 0.5s ease, border 0.5s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     border-bottom: 1px solid rgba(255, 255, 255, 1);
     color: #fff;
 }
@@ -238,12 +261,14 @@ input:focus, textarea:focus {
     font-family: 'Work Sans', sans-serif;
 }
 
-.field input:focus ~ label, .field textarea:focus ~ label, .field input:valid ~ label, .field textarea:valid ~ label{
+.field input:focus~label,
+.field textarea:focus~label,
+.field input:valid~label,
+.field textarea:valid~label {
     color: rgba(255, 255, 255, 1);
     transform: translateY(-1.2em);
     font-size: 1em;
 }
-
 
 .send-email {
     background-color: transparent;
