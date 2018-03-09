@@ -1,0 +1,288 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.topbar {
+    color: black;
+    padding: 0 50px;
+    font-weight: bold;
+    font-size: 2.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc(-1em);
+    position: relative;
+    z-index: 999;
+}
+
+.topbar .brand span {
+    display: block;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.topbar .brand:hover span {
+    transform: translateY(1em);
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.topbar .brand:hover span:nth-child(2) {
+    transform: translateY(-1em);
+    color: black;
+}
+
+.idea span {
+    font-weight: normal;
+    font-size: .5em;
+    display: none;
+}
+
+.topbar .brand span:nth-child(2) {
+    color: white;
+}
+
+.container {
+    padding: 0;
+}
+
+.banner {
+    background-color: black;
+    color: white;
+    height: calc(100vh - 3em);
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-backdrop {
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    position: relative;
+}
+
+.banner video {
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: .5em 0;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: .5em 0;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 2em;
+    margin: .5em 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+section {
+    margin: .5em 0;
+    padding: 1em;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+}
+
+.item-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.item-grid .row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-height: 300px;
+    padding: 10px 0 10px 10px;
+    border-left: 3px solid #000;
+    margin: 10px 0;
+}
+
+.item-grid .row:nth-of-type(2n) {
+    flex-direction: column;
+}
+
+.item-grid .row .thumb {
+    flex: 1;
+    text-align: center;
+}
+
+.item-grid .row .description {
+    flex: 2;
+    padding-bottom: 10px;
+}
+
+.icon-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.icon-group svg {
+    width: 100px;
+    margin: 5px;
+}
+
+a {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    text-decoration: none;
+}
+
+.contact {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+}
+
+.field label {
+    position: absolute;
+    top: .5em;
+    left: 0;
+    width: 100%;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, .5);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    text-align: left;
+}
+
+.field textarea, .field input {
+    background-color: transparent;
+    z-index: 99;
+    color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 1.2em;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: none;
+    transition: all 0.5s ease;
+}
+
+input:focus, textarea:focus {
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    color: #fff;
+}
+
+.field textarea {
+    height: 200px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.field input:focus ~ label, .field textarea:focus ~ label, .field input:valid ~ label, .field textarea:valid ~ label{
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-1.2em);
+    font-size: 1em;
+}
+
+
+.send-email {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.send-email:hover {
+    color: rgba(255, 255, 255, .5);
+    border-color: rgba(255, 255, 255, .5);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 45px 75px;
+    }
+    section {
+        margin: 1.5em 0;
+        padding: 1.5em 3em;
+        text-align: left;
+    }
+    .idea span {
+        display: inline;
+    }
+    h1 {
+        font-size: 4em;
+        font-weight: bold;
+        margin: .5em 0;
+    }
+    h2 {
+        font-size: 5.5em;
+        font-weight: bold;
+        margin: .5em 0;
+    }
+    h3 {
+        font-size: 4em;
+        font-weight: bold;
+    }
+    section {
+        width: 80%;
+    }
+    .item-grid .row {
+        flex-direction: row;
+        text-align: left;
+    }
+    .item-grid .row:nth-of-type(2n) {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    .item-grid {
+        padding: 80px;
+    }
+}
