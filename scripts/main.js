@@ -22,7 +22,7 @@ elForm.addEventListener("submit", function (e) {
     fetch(this.action, {
         method: "POST",
         mode: 'no-cors',
-        body: URLSearchParams(formData)
+        body: new URLSearchParams(formData)
     }).then(() => {
         this.parentElement.classList.add("submitted")
     })
