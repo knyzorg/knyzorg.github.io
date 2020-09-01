@@ -3,18 +3,21 @@
         height: 100vh;
         max-height: 100vh;
     }
+
     80% {
         max-height: 100vh;
     }
+
     100% {
         max-height: 50vh;
     }
-  }
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     0% {
         opacity: 0.1;
     }
+
     100% {
         opacity: 1;
     }
@@ -24,11 +27,22 @@
     box-sizing: border-box;
 }
 
-.banner, section, .contact {
+.banner,
+section,
+.contact {
     animation: fadeIn .5s, cubic-bezier(0.5, 0, 0.75, 0) bannerTransition 2s;
 }
 
-h1, h2, h3, h4, h5, h6, h7, p, span, svg {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+p,
+span,
+svg {
     animation: fadeIn 1.5s;
 }
 
@@ -97,18 +111,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     z-index: 2;
     position: relative;
+}
+
+.banner .video-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .banner video {
     min-height: 100%;
     min-width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
 }
 
 h1 {
@@ -301,39 +324,48 @@ textarea:focus {
     .container {
         padding: 45px 75px;
     }
+
     section {
         margin: 1.5em 0;
         padding: 1.5em 3em;
         text-align: left;
     }
+
     .idea span {
         display: inline;
     }
+
     h1 {
         font-size: 4em;
         font-weight: bold;
         margin: .5em 0;
     }
+
     h2 {
         font-size: 5.5em;
         font-weight: bold;
         margin: .5em 0;
     }
+
     h3 {
         font-size: 4em;
         font-weight: bold;
     }
+
     section {
         width: 80%;
     }
+
     .item-grid .row {
         flex-direction: row;
         text-align: left;
     }
+
     .item-grid .row:nth-of-type(2n) {
         flex-direction: row-reverse;
         text-align: right;
     }
+
     .item-grid {
         padding: 80px;
     }
