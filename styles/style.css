@@ -26,39 +26,60 @@
 
 @keyframes waggle {
     0% {
-      transform: none;
+        transform: none;
     }
-    10% {
-      transform: rotateZ(-20deg) scale(1.2);
-    }
-    12% {
-      transform: rotateZ(25deg) scale(1.2);
-    }
-    13.5% {
-      transform: rotateZ(-15deg) scale(1.2);
-    }
-    15% {
-      transform: rotateZ(15deg) scale(1.2);
-    }
-    16.5% {
-      transform: rotateZ(-12deg) scale(1.2);
-    }
-    17% {
-      transform: rotateZ(0) scale(1.2);
-    }
-    20% {
-      transform: rotateZ(0) scale(1);
-    }
-  }
 
-.waggle {
-    animation: waggle 5s 3s infinite forwards ease-out;
-  }
+    10% {
+        transform: rotateZ(-20deg) scale(1.2);
+    }
+
+    12% {
+        transform: rotateZ(25deg) scale(1.2);
+    }
+
+    13.5% {
+        transform: rotateZ(-15deg) scale(1.2);
+    }
+
+    15% {
+        transform: rotateZ(15deg) scale(1.2);
+    }
+
+    16.5% {
+        transform: rotateZ(-12deg) scale(1.2);
+    }
+
+    17% {
+        transform: rotateZ(0) scale(1.2);
+    }
+
+    20% {
+        transform: rotateZ(0) scale(1);
+    }
+}
+
+
+::selection {
+    color: white;
+    background-color: black;
+}
+
+.invert ::selection {
+    color: black;
+    background-color: white;
+}
+
 
 * {
     box-sizing: border-box;
 }
 
+.invert {
+    background-color: black;
+    color: white;
+}
+
+/* Fancy flash effect on load */
 .banner,
 section,
 .contact {
@@ -76,6 +97,13 @@ p,
 span,
 svg {
     animation: fadeIn 1.5s;
+}
+
+h1,
+h2,
+h3 {
+    color: black;
+    background-color: white;
 }
 
 body {
@@ -96,6 +124,7 @@ body {
     z-index: 999;
 }
 
+/* Invert text colours */
 .topbar .brand span {
     display: block;
     position: relative;
@@ -112,9 +141,17 @@ body {
     transform: translateY(-1em);
     color: black;
 }
-.idea {
-    margin-bottom: -5px;
+
+.topbar .brand span:nth-child(2) {
+    color: white;
 }
+
+/* Waggle resume link */
+.idea {
+    margin-top: -5px;
+    animation: waggle 5s 3s infinite forwards ease-out;
+}
+
 .idea span {
     font-weight: normal;
     font-size: .5em;
@@ -125,26 +162,25 @@ body {
     background-color: white;
 }
 
-.idea a {
+.idea span a {
     text-decoration: none;
-}
-
-.topbar .brand span:nth-child(2) {
-    color: white;
 }
 
 .container {
     padding: 0;
 }
 
+/* Animation banner to comfortable height */
 .banner {
-    background-color: black;
-    color: white;
     height: calc(100vh - 5em);
     max-height: 50vh;
     position: relative;
     overflow: hidden;
     animation: fadeIn .5s, cubic-bezier(0.5, 0, 0.75, 0) bannerTransition 2s;
+}
+
+.banner h3 {
+    padding: 8px;
 }
 
 .banner-backdrop {
@@ -213,6 +249,9 @@ section {
     width: 100%;
 }
 
+.description {
+    max-width: 750px;
+}
 .item-grid {
     display: flex;
     flex-direction: column;
@@ -229,9 +268,6 @@ section {
     margin: 10px 0;
 }
 
-.item-grid .row:nth-of-type(2n) {
-    flex-direction: column;
-}
 
 .item-grid .row .thumb {
     flex: 1;
@@ -240,7 +276,7 @@ section {
 
 .item-grid .row .description {
     flex: 2;
-    padding-bottom: 10px;
+    padding: 0 10px 10px 10px;
 }
 
 .icon-group {
@@ -263,8 +299,6 @@ a {
 }
 
 .contact {
-    background-color: #000;
-    color: #fff;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -291,7 +325,7 @@ a {
 }
 
 .contact.submitted .sentInfo {
-    max-height: 900vh;
+    max-height: 1800px;
 }
 
 .field {
@@ -352,17 +386,22 @@ textarea:focus {
     border: none;
     font-size: 1em;
     font-weight: bold;
-    border-bottom: 1px solid #fff;
-    padding: 10px 0;
+    border: 1px solid #fff;
+    padding: 10px;
     transition: all 0.5s ease;
     cursor: pointer;
 }
 
 .send-email:hover {
-    color: rgba(255, 255, 255, .5);
+    color: black;
+    background-color: white;
     border-color: rgba(255, 255, 255, .5);
 }
 
+footer {
+    text-align: center;
+    padding-bottom: 20px;
+}
 @media (min-width: 768px) {
     .container {
         padding: 45px 75px;
@@ -407,11 +446,6 @@ textarea:focus {
     .item-grid .row {
         flex-direction: row;
         text-align: left;
-    }
-
-    .item-grid .row:nth-of-type(2n) {
-        flex-direction: row-reverse;
-        text-align: right;
     }
 
     .item-grid {
