@@ -1,26 +1,35 @@
-* {
-    box-sizing: border-box;
-}
+@keyframes bannerTransition {
+    0% {
+        height: 100vh;
+        max-height: 100vh;
+    }
+    80% {
+        max-height: 100vh;
+    }
+    100% {
+        max-height: 50vh;
+    }
+  }
 
-.banner, section, .contact {
-    animation: fadeIn .5s;
-}
-
-h1, h2, h3, h4, h5, h6, h7, p, span, svg {
-    animation: fadeIn 1.5s;
-}
-
-video {
-    animation: fadeIn 3s;
-}
-
-@keyframes fadeIn {
+  @keyframes fadeIn {
     0% {
         opacity: 0.1;
     }
     100% {
         opacity: 1;
     }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.banner, section, .contact {
+    animation: fadeIn .5s, cubic-bezier(0.5, 0, 0.75, 0) bannerTransition 2s;
+}
+
+h1, h2, h3, h4, h5, h6, h7, p, span, svg {
+    animation: fadeIn 1.5s;
 }
 
 body {
@@ -75,7 +84,8 @@ body {
 .banner {
     background-color: black;
     color: white;
-    height: calc(100vh - 3em);
+    height: calc(100vh - 5em);
+    max-height: 50vh;
     position: relative;
     overflow: hidden;
 }
