@@ -18,14 +18,16 @@ elForm.addEventListener("submit", function (e) {
     for (let key in postData) {
         formData.append(key, postData[key]);
     }
-
-    fetch(this.action, {
-        method: "POST",
-        mode: 'no-cors',
-        body: new URLSearchParams(formData)
-    }).then(() => {
-        this.parentElement.classList.add("submitted")
-    })
+    grecaptcha.ready(async function() {
+        const token = await grecaptcha.execute('6Lfz18sZAAAAACIiq7_g3xRdACwOF5H18Peeu6SI', {action: 'submit'});
+        formData.append("token", token);
+        const request = await fetch(this.action, {
+            method: "POST",
+            mode: 'no-cors',
+            body: new URLSearchParams(formData)
+        })
+        this.parentElement.classList.add("submitted");
+      });
 
     e.preventDefault();
 })
